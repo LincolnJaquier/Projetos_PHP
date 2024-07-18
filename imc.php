@@ -14,6 +14,7 @@
 	                position: absolute; 
 	                top: 50%; }
 	        </style>
+	        <strong>Calculadora IMC </strong><br>
 	    	<div id='divCenter'>
 				<strong>Peso: </strong><br>
 				<form method='post' action='imc.php'>
