@@ -52,72 +52,21 @@
 
     $resposta = json_decode(curl_exec($ch), true);
     if ($resposta){
-        echo"<html>
-                <body>
-                <style type='table/css'>
-                #DivTable{
-                    table {
-                    border-collapse: collapse;
-                    border: 2px solid rgb(140 140 140);
-                    font-family: sans-serif;
-                    font-size: 0.8rem;
-                    letter-spacing: 1px;
-                    }
-                    thead,
-                    tfoot {
-                      background-color: rgb(228 240 245);
-                    }
+        $logradouro = $resposta["logradouro"];
+        $bairro = $resposta["bairro"];
+        $localidade = $resposta["localidade"];
+        $uf = $resposta["uf"];
+ 
+        curl_close($ch);
+        echo "<pre>";
+        echo "      
+              CEP: <strong>$cep</strong> <br>
+              Logradouro: <strong>$logradouro</strong> <br>
+              Bairro: <strong>$bairro</strong> <br>
+              Localidade: <strong>$localidade</strong> <br>
+              UF: <strong>$uf</strong> <br>
+              ";
 
-                    th,
-                    td {
-                      border: 1px solid rgb(160 160 160);
-                      padding: 8px 10px;
-                    }
-
-                    td:last-of-type {
-                      text-align: center;
-                    }
-
-                    tbody > tr:nth-of-type(even) {
-                      background-color: rgb(237 238 242);
-                    }
-
-                    tfoot th {
-                      text-align: right;
-                    }
-
-                    tfoot td {
-                      font-weight: bold;
-                    }
-                }
-                </style>
-                <div id='divTable'>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th scope='col'>CEP</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope='row'>$cep</th>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                </body>
-        </html>";
-        // curl_close($ch);
-        // echo "<pre>";
-        // print_r($resposta["cep"]);
-        // echo"<br>";
-        // print_r($resposta["logradouro"]);
-        // echo"<br>";
-        // print_r($resposta["bairro"]);
-        // echo"<br>";
-        // print_r($resposta["localidade"]);
-        // echo"<br>";
-        // print_r($resposta["uf"]);
     }
     else{
         print_r("Cep inválido");
