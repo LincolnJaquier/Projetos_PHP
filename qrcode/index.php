@@ -4,8 +4,8 @@
 	if(isset($_POST['qr'])) {
 
 		$text = $_POST['qr'];
-		$name = md5(time()) . ".png";
-		$file = 'files/qrcode.png';
+		//$name = md5(time()) . ".png";
+		//$file = 'files/qrcode.png';
 
 		$options =array(
 			'w' => 500,
